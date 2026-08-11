@@ -1,0 +1,30 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f3f4f6;color:#111827;font-family:Arial,sans-serif}
+.container{width:min(1000px,100%);margin:auto;padding:14px}
+header{text-align:center;margin:8px 0 18px}
+h1{font-size:28px;margin:0 0 5px}
+.card{background:#fff;border-radius:14px;padding:18px;margin:14px 0;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+h2{margin-top:0}
+label{display:block;font-weight:600;margin:10px 0}
+select,input[type=number]{width:100%;padding:10px;margin-top:6px;border:1px solid #d1d5db;border-radius:8px;font-size:16px;background:#fff}
+.level-grid,.equipment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.equipment-item{border:1px solid #d1d5db;border-radius:10px;padding:12px}
+.equipment-item input{transform:scale(1.2);margin-right:8px}
+.defense-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.defense{border:1px solid #d1d5db;border-radius:10px;padding:11px}
+.row{display:flex;gap:8px;margin-top:12px}
+button{border:0;border-radius:9px;padding:11px 16px;background:#374151;color:#fff;cursor:pointer}
+.secondary{background:#9ca3af}
+.calculate{width:100%;font-size:18px;font-weight:bold;padding:15px;background:#111827}
+.preview,.summary{background:#f9fafb;border-radius:10px;padding:12px;margin-top:12px}
+.note{color:#6b7280;font-size:14px;line-height:1.45}
+.table-wrap{overflow-x:auto}
+.hit-table,.log{border-collapse:collapse;width:100%;min-width:950px}
+.hit-table th,.hit-table td,.log th,.log td{border-bottom:1px solid #e5e7eb;padding:8px;text-align:center}
+.hit-table th:first-child,.hit-table td:first-child,.log th:first-child,.log td:first-child{text-align:left}
+.hit-table input[type=number]{width:70px;margin:0;text-align:center}
+.hit-table input[type=checkbox]{transform:scale(1.15)}
+.result{border-top:1px solid #e5e7eb;padding:15px 0}
+.good{font-weight:bold}.bad{font-weight:bold}.hidden{display:none}
+.pill{display:inline-block;background:#eef2ff;border-radius:999px;padding:4px 8px;margin:2px;font-size:12px}
+@media(max-width:520px){.container{padding:10px}h1{font-size:23px}.card{padding:14px}.hit-table,.log{font-size:13px}}

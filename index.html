@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>TH15 Tournament Calculator v4</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="container">
+<header>
+<h1>TH15 Tournament Calculator</h1>
+<p>TH15 Cup damage and hit-path planner</p>
+</header>
+
+<section class="card">
+<h2>1. Equipment Levels</h2>
+<label>Mode
+<select id="mode">
+<option value="esports">Esports / Tournament</option>
+<option value="custom">Custom Level</option>
+</select>
+</label>
+<div class="level-grid">
+<label>Giant Arrow <select id="gaLevel"></select></label>
+<label>Rocket Backpack <select id="rbLevel"></select></label>
+<label>Fireball <select id="fbLevel"></select></label>
+</div>
+<div id="damagePreview" class="preview"></div>
+<div id="modeNote" class="note"></div>
+</section>
+
+<section class="card">
+<h2>2. Select Equipment / Spells You Actually Need</h2>
+<p class="note">Uncheck anything you are not using. An unchecked item contributes <b>zero damage</b>.</p>
+<div id="equipmentUse" class="equipment-grid"></div>
+</section>
+
+<section class="card">
+<h2>3. Select Defenses</h2>
+<div id="defenseList" class="defense-grid"></div>
+<div class="row">
+<button id="selectAll">Select All</button>
+<button id="clearAll" class="secondary">Clear</button>
+</div>
+</section>
+
+<section class="card">
+<h2>4. Earthquake</h2>
+<p class="note">
+Earthquake count is now entered <b>separately for every defense</b> in the Hit Map.
+For example: Air Defense = 2 EQ, Inferno Tower = 3 EQ, Monolith = 0 EQ.
+</p>
+</section>
+
+<section class="card">
+<h2>5. Hit Map / Allocation</h2>
+<p class="note">
+Enter the actual spell count and confirm the actual path/radius in the base. Being in the same compartment or
+appearing aligned is not enough.
+</p>
+<div id="hitMap"></div>
+</section>
+
+<button id="calculate" class="calculate">CALCULATE</button>
+
+<section id="results" class="card hidden">
+<h2>6. Results</h2>
+<div id="summary"></div>
+<div id="details"></div>
+</section>
+
+<section class="card">
+<h2>Accuracy rules</h2>
+<ul>
+<li>Only checked equipment/spells are used.</li>
+<li>EQ: enter the Earthquake count separately for each defense. A defense with 0 EQ receives no EQ damage.</li>
+<li>Giant Arrow: check only buildings actually crossed by the arrow.</li>
+<li>Rocket Backpack: check only buildings actually crossed by its line.</li>
+<li>Fireball: check the target and any buildings actually inside the splash radius.</li>
+<li>Lightning: use the number of Lv.10 spells allocated to each defense.</li>
+<li>Clan Castle: Lightning is disabled because Lightning does not damage Clan Castles.</li>
+</ul>
+</section>
+</main>
+<script src="database.js"></script>
+<script src="calculator.js"></script>
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("service-worker.js").catch(()=>{});
+</script>
+</body>
+</html>
