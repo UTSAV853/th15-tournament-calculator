@@ -59,3 +59,15 @@ The global EQ count is no longer used.
 
 
 CALCULATE BUTTON FIX: Removed the obsolete global EQ count lookup. EQ is calculated from each defense's individual EQ Count field. Service-worker cache was versioned to force the fix.
+
+
+ATTACK TRACKER UPDATE:
+- Total attacks planned
+- Attacks already happened
+- Attacks remaining
+- Wins, losses and draws
+- Completed attack history
+- Stars and destruction percentage per completed attack
+- Data is saved in browser localStorage so it remains on the same device/browser.
+
+The tracker is separate from the damage calculator.
