@@ -56,3 +56,6 @@ Example:
 
 The calculator uses each defense's own EQ count when calculating its damage.
 The global EQ count is no longer used.
+
+
+CALCULATE BUTTON FIX: Removed the obsolete global EQ count lookup. EQ is calculated from each defense's individual EQ Count field. Service-worker cache was versioned to force the fix.

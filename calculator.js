@@ -145,7 +145,7 @@ function numberValue(row,cls){
   return x ? Math.max(0,Number(x.value)||0) : 0;
 }
 
-function calcDefense(def,row,eqCount){
+function calcDefense(def,row){
   let hp=DEFENSES[def].hp;
   const initial=hp,log=[];
 
@@ -195,8 +195,7 @@ document.getElementById("calculate").onclick=()=>{
   const rows=[...document.querySelectorAll("#hitMap tbody tr")];
   if(!rows.length){alert("Select at least one defense.");return;}
 
-  const eqCount=Math.max(0,Math.min(8,Number(document.getElementById("eqCount").value)||0));
-  const results=rows.map(r=>calcDefense(decodeURIComponent(r.dataset.defense),r,eqCount));
+  const results=rows.map(r=>calcDefense(decodeURIComponent(r.dataset.defense),r));
   const destroyed=results.filter(r=>r.destroyed).length;
   const extra=results.reduce((s,r)=>s+r.lightningNeeded,0);
   const used=results.reduce((s,r)=>s+r.lightningUsed,0);
