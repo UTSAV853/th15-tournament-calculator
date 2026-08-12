@@ -39,7 +39,31 @@
 </section>
 
 <section class="card">
-<h2>3. Select Defenses</h2>
+<h2>3. Crafted Defense</h2>
+<p class="note">TH15 Crafted Defense maximum level: <b>15</b>.</p>
+<label>Crafted Defense
+<select id="craftedDefense">
+<option value="none">None</option>
+<option value="Cake-A-Pult">Cake-A-Pult</option>
+<option value="Hero Hunter">Hero Hunter</option>
+<option value="Hot Candle">Hot Candle</option>
+</select>
+</label>
+<div id="craftedOptions" class="level-grid hidden">
+<label>Module 1
+<select class="crafted-module"></select></label>
+<label>Module 2
+<select class="crafted-module"></select></label>
+<label>Module 3
+<select class="crafted-module"></select></label>
+<label>Current HP
+<input id="craftedHP" type="number" min="0" value="0"></label>
+</div>
+<div id="craftedDescription" class="preview">No Crafted Defense selected.</div>
+</section>
+
+<section class="card">
+<h2>4. Select Defenses</h2>
 <div id="defenseList" class="defense-grid"></div>
 <div class="row">
 <button id="selectAll">Select All</button>
@@ -84,6 +108,80 @@ appearing aligned is not enough.
 <li>Clan Castle: Lightning is disabled because Lightning does not damage Clan Castles.</li>
 </ul>
 </section>
+
+<section class="card">
+<h2>8. Tournament Decision Menu</h2>
+<p class="note">
+Use <b>Destruction Calculation</b> when you only need to know whether a
+defense can be destroyed. Use <b>Tournament Result</b> when destruction alone
+does not determine the winner.
+</p>
+
+<label>Decision Mode
+<select id="decisionMode">
+<option value="destruction">Destruction Calculation</option>
+<option value="tournament">Tournament Result</option>
+</select>
+</label>
+
+<div id="tournamentInputs" class="level-grid hidden">
+<label>Your Stars
+<input id="yourStars" type="number" min="0" max="3" value="0"></label>
+<label>Your Destruction %
+<input id="yourDestruction" type="number" min="0" max="100" step="0.01" value="0"></label>
+<label>Opponent Stars
+<input id="oppStars" type="number" min="0" max="3" value="0"></label>
+<label>Opponent Destruction %
+<input id="oppDestruction" type="number" min="0" max="100" step="0.01" value="0"></label>
+</div>
+
+<div id="decisionOutput" class="preview">
+Destruction mode: use the calculator above to determine whether the selected defenses can be destroyed.
+</div>
+</section>
+
+
+<section class="card">
+<h2>9. Tournament Attack Tracker</h2>
+<p class="note">
+Track how many attacks are scheduled, how many have already happened, and how
+many remain. This is separate from the damage calculation.
+</p>
+
+<div class="level-grid">
+<label>Total Attacks Planned
+<input id="totalAttacks" type="number" min="0" value="0"></label>
+
+<label>Attacks Already Happened
+<input id="attacksHappened" type="number" min="0" value="0"></label>
+
+<label>Attacks Won
+<input id="attacksWon" type="number" min="0" value="0"></label>
+
+<label>Attacks Lost
+<input id="attacksLost" type="number" min="0" value="0"></label>
+
+<label>Attacks Drawn
+<input id="attacksDrawn" type="number" min="0" value="0"></label>
+</div>
+
+<div id="attackTrackerSummary" class="preview">
+Enter the planned and completed attack numbers.
+</div>
+
+<div class="row">
+<button id="recordAttack">Record Completed Attack</button>
+<button id="resetAttackTracker" class="secondary">Reset Tracker</button>
+</div>
+</section>
+
+<section class="card">
+<h2>10. Attack History</h2>
+<div id="attackHistory">
+<p class="note">No completed attacks recorded.</p>
+</div>
+</section>
+
 </main>
 <script src="database.js"></script>
 <script src="calculator.js"></script>

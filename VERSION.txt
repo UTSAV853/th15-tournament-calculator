@@ -1,0 +1,15 @@
+v1.5 Tournament Menu - combined current version
+
+Includes:
+- Equipment level selection
+- Esports Common Lv15 / Epic Lv18
+- Separate EQ count per defense
+- Separate Lightning Lv10 count per defense
+- Equipment ON/OFF checks
+- Giant Arrow / Rocket Backpack / Fireball hit checks
+- Builder's Hut and Clan Castle
+- Crafted Defense selector: Cake-A-Pult, Hero Hunter, Hot Candle
+- Crafted Defense modules Lv1-Lv15
+- Tournament Decision Menu:
+  * Destruction Calculation
+  * Tournament Result
