@@ -28,3 +28,12 @@ button{border:0;border-radius:9px;padding:11px 16px;background:#374151;color:#ff
 .good{font-weight:bold}.bad{font-weight:bold}.hidden{display:none}
 .pill{display:inline-block;background:#eef2ff;border-radius:999px;padding:4px 8px;margin:2px;font-size:12px}
 @media(max-width:520px){.container{padding:10px}h1{font-size:23px}.card{padding:14px}.hit-table,.log{font-size:13px}}
+
+.delete-attack{background:#b91c1c;padding:6px 10px;border-radius:7px;font-size:12px}.delete-attack:hover{background:#991b1b}
+
+#predictionDialog{border:0;border-radius:14px;padding:0;width:min(700px,92vw);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+#predictionDialog::backdrop{background:rgba(0,0,0,.5)}
+.prediction-dialog{padding:20px;margin:0}
+.dialog-header{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.dialog-header h2{margin:0}
+.dialog-close{background:transparent;color:#111827;font-size:28px;padding:4px 10px}

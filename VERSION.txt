@@ -1,15 +1,8 @@
-v1.5 Tournament Menu - combined current version
+TH15 Tournament Calculator v2.8
 
-Includes:
-- Equipment level selection
-- Esports Common Lv15 / Epic Lv18
-- Separate EQ count per defense
-- Separate Lightning Lv10 count per defense
-- Equipment ON/OFF checks
-- Giant Arrow / Rocket Backpack / Fireball hit checks
-- Builder's Hut and Clan Castle
-- Crafted Defense selector: Cake-A-Pult, Hero Hunter, Hot Candle
-- Crafted Defense modules Lv1-Lv15
-- Tournament Decision Menu:
-  * Destruction Calculation
-  * Tournament Result
+Fixed:
+- Predict Winning Target button now works.
+- Prediction dialog is placed before JavaScript execution so its DOM elements
+  exist when the click handler is registered.
+- Tracker data is read from the current tournament tracker storage.
+- Service-worker cache bumped.

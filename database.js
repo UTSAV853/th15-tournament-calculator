@@ -59,5 +59,3 @@ const LIGHTNING = {
   damage:600,
   radius:2
 };
-
-const CRAFTED_DEFENSE_MAX_LEVEL = 15;

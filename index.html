@@ -38,32 +38,7 @@
 <div id="equipmentUse" class="equipment-grid"></div>
 </section>
 
-<section class="card">
-<h2>3. Crafted Defense</h2>
-<p class="note">TH15 Crafted Defense maximum level: <b>15</b>.</p>
-<label>Crafted Defense
-<select id="craftedDefense">
-<option value="none">None</option>
-<option value="Cake-A-Pult">Cake-A-Pult</option>
-<option value="Hero Hunter">Hero Hunter</option>
-<option value="Hot Candle">Hot Candle</option>
-</select>
-</label>
-<div id="craftedOptions" class="level-grid hidden">
-<label>Module 1
-<select class="crafted-module"></select></label>
-<label>Module 2
-<select class="crafted-module"></select></label>
-<label>Module 3
-<select class="crafted-module"></select></label>
-<label>Current HP
-<input id="craftedHP" type="number" min="0" value="0"></label>
-</div>
-<div id="craftedDescription" class="preview">No Crafted Defense selected.</div>
-</section>
-
-<section class="card">
-<h2>4. Select Defenses</h2>
+<section class="card"><h2>3. Crafted Defense</h2><p class="note">TH15 Crafted Defense maximum module level: <b>15</b>.</p><label>Crafted Defense<select id="craftedDefense"><option value="none">None</option><option value="Cake-A-Pult">Cake-A-Pult</option><option value="Hero Hunter">Hero Hunter</option><option value="Hot Candle">Hot Candle</option></select></label><div id="craftedOptions" class="level-grid hidden"><label>Module 1<select class="crafted-module"></select></label><label>Module 2<select class="crafted-module"></select></label><label>Module 3<select class="crafted-module"></select></label><label>Current HP<input id="craftedHP" type="number" min="0" value="0"></label></div><div id="craftedDescription" class="preview">No Crafted Defense selected.</div></section><section class="card"><h2>4. Select Defenses</h2>
 <div id="defenseList" class="defense-grid"></div>
 <div class="row">
 <button id="selectAll">Select All</button>
@@ -72,7 +47,7 @@
 </section>
 
 <section class="card">
-<h2>4. Earthquake</h2>
+<h2>5. Earthquake</h2>
 <p class="note">
 Earthquake count is now entered <b>separately for every defense</b> in the Hit Map.
 For example: Air Defense = 2 EQ, Inferno Tower = 3 EQ, Monolith = 0 EQ.
@@ -80,7 +55,7 @@ For example: Air Defense = 2 EQ, Inferno Tower = 3 EQ, Monolith = 0 EQ.
 </section>
 
 <section class="card">
-<h2>5. Hit Map / Allocation</h2>
+<h2>6. Hit Map / Allocation</h2>
 <p class="note">
 Enter the actual spell count and confirm the actual path/radius in the base. Being in the same compartment or
 appearing aligned is not enough.
@@ -91,7 +66,7 @@ appearing aligned is not enough.
 <button id="calculate" class="calculate">CALCULATE</button>
 
 <section id="results" class="card hidden">
-<h2>6. Results</h2>
+<h2>7. Results</h2>
 <div id="summary"></div>
 <div id="details"></div>
 </section>
@@ -110,83 +85,145 @@ appearing aligned is not enough.
 </section>
 
 <section class="card">
-<h2>8. Tournament Decision Menu</h2>
+<h2>8. Tournament Attack Tracker</h2>
+
 <p class="note">
-Use <b>Destruction Calculation</b> when you only need to know whether a
-defense can be destroyed. Use <b>Tournament Result</b> when destruction alone
-does not determine the winner.
-</p>
-
-<label>Decision Mode
-<select id="decisionMode">
-<option value="destruction">Destruction Calculation</option>
-<option value="tournament">Tournament Result</option>
-</select>
-</label>
-
-<div id="tournamentInputs" class="level-grid hidden">
-<label>Your Stars
-<input id="yourStars" type="number" min="0" max="3" value="0"></label>
-<label>Your Destruction %
-<input id="yourDestruction" type="number" min="0" max="100" step="0.01" value="0"></label>
-<label>Opponent Stars
-<input id="oppStars" type="number" min="0" max="3" value="0"></label>
-<label>Opponent Destruction %
-<input id="oppDestruction" type="number" min="0" max="100" step="0.01" value="0"></label>
-</div>
-
-<div id="decisionOutput" class="preview">
-Destruction mode: use the calculator above to determine whether the selected defenses can be destroyed.
-</div>
-</section>
-
-
-<section class="card">
-<h2>9. Tournament Attack Tracker</h2>
-<p class="note">
-Track how many attacks are scheduled, how many have already happened, and how
-many remain. This is separate from the damage calculation.
+Enter every completed attack directly on this page. There is no popup input.
+After each save, the tournament result, totals, averages, attacks remaining,
+and next-attack target update immediately.
 </p>
 
 <div class="level-grid">
-<label>Total Attacks Planned
-<input id="totalAttacks" type="number" min="0" value="0"></label>
+<label>Total Attacks Per Team
+<input id="trackerTotalAttacks" type="number" min="1" value="3">
+</label>
 
-<label>Attacks Already Happened
-<input id="attacksHappened" type="number" min="0" value="0"></label>
+<label>Round / Match
+<input id="trackerRound" type="text" placeholder="Example: Monthly Qualifier R2">
+</label>
 
-<label>Attacks Won
-<input id="attacksWon" type="number" min="0" value="0"></label>
+<label>My Team
+<input id="trackerMyTeam" type="text" placeholder="My Team">
+</label>
 
-<label>Attacks Lost
-<input id="attacksLost" type="number" min="0" value="0"></label>
-
-<label>Attacks Drawn
-<input id="attacksDrawn" type="number" min="0" value="0"></label>
+<label>Opponent
+<input id="trackerOpponent" type="text" placeholder="Opponent">
+</label>
 </div>
 
-<div id="attackTrackerSummary" class="preview">
-Enter the planned and completed attack numbers.
+<div class="card" style="margin-top:12px">
+<h3>Enter Completed Attack</h3>
+
+<div class="level-grid">
+<label>Team
+<select id="trackerEntryTeam">
+<option value="mine">My Team</option>
+<option value="opp">Opponent</option>
+</select>
+</label>
+
+<label>Attack #
+<input id="trackerEntryAttack" type="number" min="1" value="1">
+</label>
+
+<label>Stars
+<input id="trackerEntryStars" type="number" min="0" max="3" step="1" value="2">
+</label>
+
+<label>Destruction %
+<input id="trackerEntryDestruction" type="number" min="0" max="100" step="0.01" value="80">
+</label>
+
+<label>Attack Time - Minutes
+<input id="trackerEntryMinutes" type="number" min="0" step="1" value="2">
+</label>
+
+<label>Attack Time - Seconds
+<input id="trackerEntrySeconds" type="number" min="0" max="59" step="1" value="30">
+</label>
+
+<label>Note
+<input id="trackerEntryNote" type="text" placeholder="Optional">
+</label>
 </div>
 
 <div class="row">
-<button id="recordAttack">Record Completed Attack</button>
-<button id="resetAttackTracker" class="secondary">Reset Tracker</button>
+<button id="saveTrackerAttack" type="button">Save / Update Attack</button>
+<button id="clearTournamentTracker" type="button" class="secondary">Clear Match</button>
+</div>
+</div>
+
+<div id="trackerLiveResult" class="preview">
+No attacks entered yet.
 </div>
 </section>
 
 <section class="card">
-<h2>10. Attack History</h2>
-<div id="attackHistory">
-<p class="note">No completed attacks recorded.</p>
+<h2>9. Tournament Result</h2>
+<div id="liveResult" class="preview">
+Enter attacks above to calculate the current result.
+</div>
+<div class="row">
+<button id="openPredictionDialog" type="button">Predict Winning Target</button>
+</div>
+</section>
+
+
+<section class="card">
+<h2>11. Attack-by-Attack Statistics</h2>
+<div id="attackStats">
+<p class="note">No attacks recorded.</p>
+</div>
+</section>
+
+<section class="card">
+<h2>12. Team Totals & Averages</h2>
+<div id="teamAverages">
+<p class="note">No attacks recorded.</p>
 </div>
 </section>
 
 </main>
+<dialog id="predictionDialog">
+  <form method="dialog" class="prediction-dialog">
+    <div class="dialog-header">
+      <h2>Predict Winning Target</h2>
+      <button value="cancel" class="dialog-close" type="submit">×</button>
+    </div>
+
+    <div id="predictionCurrent" class="preview">
+      Current match data will appear here.
+    </div>
+
+    <div class="level-grid">
+      <label>Expected Stars per Remaining Attack
+        <input id="predictionStars" type="number" min="0" max="3" step="0.01" value="2">
+      </label>
+
+      <label>Expected Destruction % per Remaining Attack
+        <input id="predictionDestruction" type="number" min="0" max="100" step="0.01" value="80">
+      </label>
+    </div>
+
+    <div id="predictionTarget" class="preview">
+      Enter the expected performance to calculate a projection.
+    </div>
+
+    <div class="row">
+      <button id="runPrediction" type="button">Calculate Prediction</button>
+      <button value="cancel" type="submit" class="secondary">Close</button>
+    </div>
+  </form>
+</dialog>
 <script src="database.js"></script>
 <script src="calculator.js"></script>
 <script>
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("service-worker.js").catch(()=>{});
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js").catch(() => {});
+}
 </script>
+
+
+
 </body>
 </html>
